@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bluetooth Mouse</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        .button {
+            display: inline-block;
+            padding: 20px;
+            margin: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .status {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bluetooth Mouse</h1>
+        <div>
+            <div class="button" id="left-click">Left Click</div>
+            <div class="button" id="right-click">Right Click</div>
+        </div>
+        <div>
+            <div class="button" id="scroll-up">Scroll Up</div>
+            <div class="button" id="scroll-down">Scroll Down</div>
+        </div>
+        <div class="status" id="status">Not connected</div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
