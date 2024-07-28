@@ -1,6 +1,10 @@
+// app.js
+
+let device = null;
+
 async function connectToDevice() {
     try {
-        const device = await navigator.bluetooth.requestDevice({
+        device = await navigator.bluetooth.requestDevice({
             acceptAllDevices: true,
             optionalServices: ['battery_service']  // Update this to the actual service you need
         });
@@ -16,7 +20,7 @@ async function connectToDevice() {
         console.log('Battery level:', batteryLevel.getUint8(0) + '%');
     } catch (error) {
         console.error('Connection failed:', error);
-        document.getElementById('status').textContent = 'Connection failed';
+        document.getElementById('status').textContent = 'Connection failed: ' + error;
     }
 }
 
@@ -26,10 +30,8 @@ function sendMouseAction(action) {
     // For now, we'll just log it to the console
 }
 
+document.getElementById('connect').addEventListener('click', connectToDevice);
 document.getElementById('left-click').addEventListener('click', () => sendMouseAction('Left click'));
 document.getElementById('right-click').addEventListener('click', () => sendMouseAction('Right click'));
 document.getElementById('scroll-up').addEventListener('click', () => sendMouseAction('Scroll up'));
 document.getElementById('scroll-down').addEventListener('click', () => sendMouseAction('Scroll down'));
-
-// Connect to the Bluetooth device when the page loads
-connectToDevice();
